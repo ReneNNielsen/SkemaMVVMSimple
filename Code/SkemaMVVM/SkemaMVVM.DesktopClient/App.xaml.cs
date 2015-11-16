@@ -9,7 +9,8 @@ namespace SkemaMVVM.DesktopClient
     {
         private void Application_Startup(object sender, StartupEventArgs e)
         {
-
+            Window window = new Window();
+            window.ShowDialog();
         }
     }
 }
