@@ -7,9 +7,15 @@ namespace SkemaMVVM.DesktopClient
     /// </summary>
     public partial class App : Application
     {
-        private void Application_Startup(object sender, StartupEventArgs e)
+        protected override void OnStartup(StartupEventArgs e)
         {
-            Window window = new Window();
+            base.OnStartup(e);
+
+            var window = new MainWindow
+            {
+
+            };
+
             window.ShowDialog();
         }
     }

@@ -10,11 +10,10 @@ namespace ViewModels
 {
     public class TeacherSelectViewModel : PersonSelectViewModel
     {
-        
-        protected TeacherSelectViewModel()
+        public TeacherSelectViewModel()
         {
+
         }
-        
 
     }
 }

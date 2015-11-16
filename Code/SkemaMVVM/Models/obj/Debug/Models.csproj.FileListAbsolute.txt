@@ -3,3 +3,8 @@ C:\Users\djda9\Dropbox\Programmering\SkemaMVVM\Code\SkemaMVVM\Models\bin\Debug\M
 C:\Users\djda9\Dropbox\Programmering\SkemaMVVM\Code\SkemaMVVM\Models\obj\Debug\Models.csprojResolveAssemblyReference.cache
 C:\Users\djda9\Dropbox\Programmering\SkemaMVVM\Code\SkemaMVVM\Models\obj\Debug\Models.dll
 C:\Users\djda9\Dropbox\Programmering\SkemaMVVM\Code\SkemaMVVM\Models\obj\Debug\Models.pdb
+C:\Users\ReneNN\Documents\Visual Studio 2015\Projects\SkemaMVVM2\Code\SkemaMVVM\Models\bin\Debug\Models.dll
+C:\Users\ReneNN\Documents\Visual Studio 2015\Projects\SkemaMVVM2\Code\SkemaMVVM\Models\bin\Debug\Models.pdb
+C:\Users\ReneNN\Documents\Visual Studio 2015\Projects\SkemaMVVM2\Code\SkemaMVVM\Models\obj\Debug\Models.csprojResolveAssemblyReference.cache
+C:\Users\ReneNN\Documents\Visual Studio 2015\Projects\SkemaMVVM2\Code\SkemaMVVM\Models\obj\Debug\Models.dll
+C:\Users\ReneNN\Documents\Visual Studio 2015\Projects\SkemaMVVM2\Code\SkemaMVVM\Models\obj\Debug\Models.pdb
