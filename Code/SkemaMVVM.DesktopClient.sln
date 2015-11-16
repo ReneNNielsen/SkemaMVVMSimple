@@ -7,15 +7,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkemaMVVM.DesktopClient", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "SkemaMVVM\Models\Models.csproj", "{B22558CA-8E15-4F8A-9F82-378852B0CFDE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Messengers", "SkemaMVVM\Messengers\Messengers.csproj", "{6D86FCD7-6979-4B17-8E4F-A9C96A125977}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Controllers", "SkemaMVVM\Controllers\Controllers.csproj", "{9619AEEA-243C-4034-BEB2-412CEB30EB28}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViewModels", "SkemaMVVM\ViewModels\ViewModels.csproj", "{CA32E619-EF90-4423-BEA9-36972BD30F24}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "SkemaMVVM\Services\Services.csproj", "{5AAEC9A4-2A73-44F5-AB48-3D16A2DBF37F}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Views", "SkemaMVVM\View\Views.csproj", "{3BE7E439-4F12-47E0-AD34-C4C4815A2FDD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,14 +25,6 @@ Global
 		{B22558CA-8E15-4F8A-9F82-378852B0CFDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B22558CA-8E15-4F8A-9F82-378852B0CFDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B22558CA-8E15-4F8A-9F82-378852B0CFDE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6D86FCD7-6979-4B17-8E4F-A9C96A125977}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6D86FCD7-6979-4B17-8E4F-A9C96A125977}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6D86FCD7-6979-4B17-8E4F-A9C96A125977}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6D86FCD7-6979-4B17-8E4F-A9C96A125977}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9619AEEA-243C-4034-BEB2-412CEB30EB28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9619AEEA-243C-4034-BEB2-412CEB30EB28}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9619AEEA-243C-4034-BEB2-412CEB30EB28}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9619AEEA-243C-4034-BEB2-412CEB30EB28}.Release|Any CPU.Build.0 = Release|Any CPU
 		{CA32E619-EF90-4423-BEA9-36972BD30F24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{CA32E619-EF90-4423-BEA9-36972BD30F24}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CA32E619-EF90-4423-BEA9-36972BD30F24}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -47,10 +33,6 @@ Global
 		{5AAEC9A4-2A73-44F5-AB48-3D16A2DBF37F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5AAEC9A4-2A73-44F5-AB48-3D16A2DBF37F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5AAEC9A4-2A73-44F5-AB48-3D16A2DBF37F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3BE7E439-4F12-47E0-AD34-C4C4815A2FDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3BE7E439-4F12-47E0-AD34-C4C4815A2FDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3BE7E439-4F12-47E0-AD34-C4C4815A2FDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3BE7E439-4F12-47E0-AD34-C4C4815A2FDD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
