@@ -24,11 +24,22 @@ namespace ViewModels
             protected set
             {
                 person = value;
+                OnPropertyChanged();
             }
         }
 
-
-
-        
+        private PersonListItemViewData selectedPerson;
+        public PersonListItemViewData SelectedPerson
+        {
+            get
+            {
+                return selectedPerson;
+            }
+            set
+            {
+                selectedPerson = value;
+                OnPropertyChanged();
+            }
+        }
     }
 }
