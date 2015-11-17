@@ -26,5 +26,10 @@ namespace ViewModels
 
             }
         }
+
+        public PersonSelectViewData()
+        {
+            Persons = new ObservableCollection<PersonListItemViewData>();
+        }
     }
 }
