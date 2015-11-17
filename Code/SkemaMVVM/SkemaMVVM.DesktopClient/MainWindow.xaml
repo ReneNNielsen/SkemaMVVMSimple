@@ -21,23 +21,11 @@
                         <ColumnDefinition Width="60px" />
                     </Grid.ColumnDefinitions>
 
-                    <DataGrid ItemsSource="{Binding Person.Persons}" />
+                    <DataGrid ItemsSource="{Binding Person.Persons}" SelectedItem="{Binding SelectedPerson}" />
 
-                    <!--<ListView Grid.Column="0" ItemsSource="{Binding Person.Persons}">
-                        <ListView.View>
-                            <GridView>
-                                <GridViewColumn DisplayMemberBinding="{Binding Path=SocialSecurityNumber}" HeaderContainerStyle="{StaticResource hcs}" Header="CPR" Width="50px" />
-                                <GridViewColumn DisplayMemberBinding="{Binding Path=FirstName}" HeaderContainerStyle="{StaticResource hcs}" Header="Fornavn" Width="70px"/>
-                                <GridViewColumn DisplayMemberBinding="{Binding Path=LastName}" HeaderContainerStyle="{StaticResource hcs}" Header="Efternavn" Width="70px"/>
-                                <GridViewColumn DisplayMemberBinding="{Binding Path=Address}" HeaderContainerStyle="{StaticResource hcs}" Header="Adresse" Width="100px"/>
-                                <GridViewColumn DisplayMemberBinding="{Binding Path=ZipCode}" HeaderContainerStyle="{StaticResource hcs}" Header="Post nr." Width="50px"/>
-                                <GridViewColumn DisplayMemberBinding="{Binding Path=City}" HeaderContainerStyle="{StaticResource hcs}" Header="By" Width="80px"/>
-                            </GridView>
-                        </ListView.View>
-                    </ListView>-->
                     <StackPanel Grid.Column="1">
-                        <Button Height="25px" VerticalAlignment="Top" Content="Ny lære" />
-                        <Button Height="25px" VerticalAlignment="Top" Content="Redigér" />
+                        <Button Height="25px" VerticalAlignment="Top" Content="Ny lære" Command="{Binding AddTeacherCommand}"/>
+                        <Button Height="25px" VerticalAlignment="Top" Content="Redigér" Command="{Binding EditTeacherCommand}" />
                     </StackPanel>
 
                 </Grid>
@@ -49,10 +37,10 @@
                         <ColumnDefinition Width="60px" />
                     </Grid.ColumnDefinitions>
 
-                    <ListView Grid.Column="0" ItemsSource="{Binding studentSource}" />
+                    <ListView Grid.Column="0" ItemsSource="{Binding studentSource}" SelectedItem="{Binding SelectedPerson}" />
                     <StackPanel Grid.Column="1">
-                        <Button Height="25px" VerticalAlignment="Top" Content="Ny elev" />
-                        <Button Height="25px" VerticalAlignment="Top" Content="Redigér" />
+                        <Button Height="25px" VerticalAlignment="Top" Content="Ny elev" Command="{Binding AddStudentCommand}"/>
+                        <Button Height="25px" VerticalAlignment="Top" Content="Redigér" Command="{Binding EditStudentCommand}"/>
                     </StackPanel>
 
                 </Grid>
