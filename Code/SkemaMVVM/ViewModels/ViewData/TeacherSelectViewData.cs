@@ -8,6 +8,9 @@ namespace ViewModels
 {
     public class TeacherSelectViewData  : PersonSelectViewData
     {
-       
+        public TeacherSelectViewData(): base()
+        {
+
+        }
     }
 }

@@ -46,7 +46,7 @@ namespace ViewModels
         {
             get
             {
-                return true;
+                return SelectedPerson != null;
             }
         }
 
@@ -61,6 +61,17 @@ namespace ViewModels
         private void EditTeacher(TeacherListItemViewData teacher)
         {
             //Open edit Window
+        }
+        public ActionCommand AddTeacherCommand
+        {
+            get
+            {
+                return new ActionCommand(p => AddTeacher());
+            }
+        }
+        private void AddTeacher()
+        {
+            //Open Add Window
         }
     }
 }
