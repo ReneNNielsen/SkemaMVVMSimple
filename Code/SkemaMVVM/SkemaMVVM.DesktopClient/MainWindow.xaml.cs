@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +12,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Models;
+using System.Data;
+using ViewModels;
 
 namespace SkemaMVVM.DesktopClient
 {
@@ -19,9 +23,11 @@ namespace SkemaMVVM.DesktopClient
     /// </summary>
     public partial class MainWindow : Window
     {
+        TeacherSelectViewModel tsvm = new TeacherSelectViewModel();
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = tsvm;
         }
     }
 }

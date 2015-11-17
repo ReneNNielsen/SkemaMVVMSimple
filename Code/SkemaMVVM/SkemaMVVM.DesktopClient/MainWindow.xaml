@@ -5,8 +5,64 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SkemaMVVM.DesktopClient"
         mc:Ignorable="d"
-        Title="MainWindow" Height="300" Width="300">
+        Title="MainWindow" Height="442" Width="522">
+    <Window.Resources>
+        <Style x:Key="hcs" TargetType="{x:Type GridViewColumnHeader}">
+            <Setter Property="HorizontalContentAlignment" Value="Left"></Setter>
+        </Style>
+    </Window.Resources>
+    
     <Grid>
-        
+        <TabControl>
+            <TabItem Header="Lærer">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="60px" />
+                    </Grid.ColumnDefinitions>
+
+                    <DataGrid ItemsSource="{Binding Person.Persons}" />
+
+                    <!--<ListView Grid.Column="0" ItemsSource="{Binding Person.Persons}">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn DisplayMemberBinding="{Binding Path=SocialSecurityNumber}" HeaderContainerStyle="{StaticResource hcs}" Header="CPR" Width="50px" />
+                                <GridViewColumn DisplayMemberBinding="{Binding Path=FirstName}" HeaderContainerStyle="{StaticResource hcs}" Header="Fornavn" Width="70px"/>
+                                <GridViewColumn DisplayMemberBinding="{Binding Path=LastName}" HeaderContainerStyle="{StaticResource hcs}" Header="Efternavn" Width="70px"/>
+                                <GridViewColumn DisplayMemberBinding="{Binding Path=Address}" HeaderContainerStyle="{StaticResource hcs}" Header="Adresse" Width="100px"/>
+                                <GridViewColumn DisplayMemberBinding="{Binding Path=ZipCode}" HeaderContainerStyle="{StaticResource hcs}" Header="Post nr." Width="50px"/>
+                                <GridViewColumn DisplayMemberBinding="{Binding Path=City}" HeaderContainerStyle="{StaticResource hcs}" Header="By" Width="80px"/>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>-->
+                    <StackPanel Grid.Column="1">
+                        <Button Height="25px" VerticalAlignment="Top" Content="Ny lære" />
+                        <Button Height="25px" VerticalAlignment="Top" Content="Redigér" />
+                    </StackPanel>
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="Elever">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="60px" />
+                    </Grid.ColumnDefinitions>
+
+                    <ListView Grid.Column="0" ItemsSource="{Binding studentSource}" />
+                    <StackPanel Grid.Column="1">
+                        <Button Height="25px" VerticalAlignment="Top" Content="Ny elev" />
+                        <Button Height="25px" VerticalAlignment="Top" Content="Redigér" />
+                    </StackPanel>
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="Skema">
+
+            </TabItem>
+            <TabItem Header="Fag">
+
+            </TabItem>
+        </TabControl>
     </Grid>
 </Window>
