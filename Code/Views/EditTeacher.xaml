@@ -45,12 +45,12 @@
         <TextBox Grid.Row="5" Grid.Column="1" Text="{Binding PersonData.City}" />
 
         <Label Grid.Row="6" Grid.Column="0" Content="Fag:"/>
-        <ComboBox Grid.Row="6" Grid.Column="1" ItemsSource="{Binding PersonData.Subjects}">
+        <ComboBox Grid.Row="6" Grid.Column="1" ItemsSource="{Binding Subjects}">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
                         <CheckBox IsChecked="{Binding IsSelected}" Width="20" />
-                        <TextBlock Text="{Binding Subject}" Width="100" />
+                        <TextBlock Text="{Binding Name}" Width="100" />
                     </StackPanel>
                 </DataTemplate>
             </ComboBox.ItemTemplate>
@@ -62,7 +62,7 @@
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
                         <CheckBox IsChecked="{Binding IsSelected}" Width="20" />
-                        <TextBlock Text="{Binding Class}" Width="100" />
+                        <TextBlock Text="{Binding Name}" Width="100" />
                     </StackPanel>
                 </DataTemplate>
             </ComboBox.ItemTemplate>

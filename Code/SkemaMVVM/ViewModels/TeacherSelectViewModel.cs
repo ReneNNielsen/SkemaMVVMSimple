@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Windows.Threading;
+using System.Collections.ObjectModel;
 
 namespace ViewModels
 {
@@ -35,7 +36,8 @@ namespace ViewModels
                     Address = teacher.Address,
                     City = teacher.City,
                     SocialSecurityNumber = teacher.SocialSecurityNumber,
-                    ZipCode = teacher.ZipCode
+                    ZipCode = teacher.ZipCode,
+                    Subjects = (ObservableCollection<Subject>)teacher.Subjects
                 });
             }
         }
@@ -64,7 +66,6 @@ namespace ViewModels
                 DataContext = teacherEditViewModel
             };
             editTeacher.ShowDialog();
-            //Open Edit Window
         }
         public ActionCommand AddTeacherCommand
         {

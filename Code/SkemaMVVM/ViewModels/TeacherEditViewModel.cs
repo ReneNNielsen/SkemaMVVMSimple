@@ -6,21 +6,55 @@ using System.Threading.Tasks;
 using Services;
 using Models;
 using Views;
+using System.Collections.ObjectModel;
 
 namespace ViewModels
 {
     public class TeacherEditViewModel : PersonEditViewModel
     {
+        private ICollection<Subject> subjectList;
+
+        private ObservableCollection<ComboboxItemViewModel> subjectComboboxItem = new ObservableCollection<ComboboxItemViewModel>();
+        public ObservableCollection<ComboboxItemViewModel> SubjectComboboxItem
+        {
+            get
+            {
+                return subjectComboboxItem;
+            }
+            set
+            {
+                subjectComboboxItem = value;
+                OnPropertyChanged();
+            }
+        }
+
         public TeacherEditViewModel() : base(new TeacherListItemViewData())
         {
-
+            addSubjectsToList();
         }
 
         public TeacherEditViewModel(TeacherListItemViewData teacherData) : base(teacherData)
         {
+            addSubjectsToList();
+        }
 
+        private void addSubjectsToList()
+        {
+            SubjectContext sc = new SubjectContext();
+            subjectList = sc.GetAllSubjects();
+
+            foreach (Subject item in subjectList)
+            {
+                SubjectComboboxItem.Add(new ComboboxItemViewModel
+                {
+                    IsSelected = (PersonData as TeacherListItemViewData).Subjects.Any(f => f.Name == item.Name),
+                    Name = item.Name
+                });
+            }
         }
         
+        #region Commands
+
         public ActionCommand SaveTeacherCommand
         {
             get
@@ -35,6 +69,15 @@ namespace ViewModels
             TeacherContext tc = new TeacherContext();
             bool isSaved = false;
             EditTeacher et = (EditTeacher)sender;
+            ICollection<Subject> teacherSubjects = new HashSet<Subject>();
+
+            foreach (ComboboxItemViewModel item in subjectComboboxItem)
+            {
+                if (item.IsSelected)
+                {
+                    teacherSubjects.Add(subjectList.Where(f => f.Name == item.Name).FirstOrDefault());
+                }
+            }
 
             Teacher teacherModel = new Teacher
             {
@@ -44,7 +87,8 @@ namespace ViewModels
                 LastName = teacherData.LastName,
                 Address = teacherData.Address,
                 City = teacherData.City,
-                ZipCode = teacherData.ZipCode
+                ZipCode = teacherData.ZipCode,
+                Subjects = teacherSubjects
             };
             if (isEdit)
             {
@@ -76,6 +120,7 @@ namespace ViewModels
             et.DialogResult = false;
             et.Close();
         }
-        
+
+        #endregion
     }
 }
