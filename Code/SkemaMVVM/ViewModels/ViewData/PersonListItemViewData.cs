@@ -11,6 +11,10 @@ namespace ViewModels
         private int id;
         private string firstName;
         private string lastName;
+        private int socialSecurityNumber;
+        private string address;
+        private int zipCode;
+        private string city;
 
         public int Id
         {
@@ -55,6 +59,66 @@ namespace ViewModels
                 if (value != lastName)
                 {
                     lastName = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+        public int SocialSecurityNumber
+        {
+            get
+            {
+                return socialSecurityNumber;
+            }
+            set
+            {
+                if (value != socialSecurityNumber)
+                {
+                    socialSecurityNumber = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+        public string Address
+        {
+            get
+            {
+                return address;
+            }
+            set
+            {
+                if (value != address)
+                {
+                    address = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+        public int ZipCode
+        {
+            get
+            {
+                return zipCode;
+            }
+            set
+            {
+                if (value != zipCode)
+                {
+                    zipCode = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+        public string City
+        {
+            get
+            {
+                return city;
+            }
+            set
+            {
+                if (value != city)
+                {
+                    city = value;
                     OnPropertyChanged();
                 }
             }

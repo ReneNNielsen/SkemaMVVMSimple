@@ -1,5 +1,7 @@
 ﻿using Models;
 using Services;
+using Views;
+using System.Windows;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,14 +19,6 @@ namespace ViewModels
         {
             tc = new TeacherContext();
             Person = new TeacherSelectViewData();
-            tc.AddNewTeacher(new Teacher()
-            {
-                FirstName = "Ola",
-                LastName = "IDontKnow",
-                City = "Viborg",
-                ZipCode = 7000,
-                SocialSecurityNumber = 1205601934
-            });
             addTeachersToPersons();
         }
 
@@ -33,11 +27,15 @@ namespace ViewModels
             List<Teacher> allTeachers = tc.GetAllTeachers();
             foreach (Teacher teacher in allTeachers)
             {
-                Person.Persons.Add(new PersonListItemViewData()
+                Person.Persons.Add(new TeacherListItemViewData()
                 {
                     Id = teacher.Id,
                     FirstName = teacher.FirstName,
-                    LastName = teacher.LastName
+                    LastName = teacher.LastName,
+                    Address = teacher.Address,
+                    City = teacher.City,
+                    SocialSecurityNumber = teacher.SocialSecurityNumber,
+                    ZipCode = teacher.ZipCode
                 });
             }
         }
@@ -60,7 +58,13 @@ namespace ViewModels
 
         private void EditTeacher(TeacherListItemViewData teacher)
         {
-            //Open edit Window
+            TeacherEditViewModel teacherEditViewModel = new TeacherEditViewModel(teacher);
+            var editTeacher = new EditTeacher
+            {
+                DataContext = teacherEditViewModel
+            };
+            editTeacher.ShowDialog();
+            //Open Edit Window
         }
         public ActionCommand AddTeacherCommand
         {
@@ -71,7 +75,12 @@ namespace ViewModels
         }
         private void AddTeacher()
         {
-            //Open Add Window
+            TeacherEditViewModel teacherEditViewModel = new TeacherEditViewModel();
+            var editTeacher = new EditTeacher
+            {
+                DataContext = teacherEditViewModel
+            };
+            editTeacher.ShowDialog();
         }
     }
 }

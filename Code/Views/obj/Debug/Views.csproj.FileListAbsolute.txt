@@ -1,0 +1,16 @@
+C:\Users\ReneNN\Documents\Visual Studio 2015\Projects\SkemaMVVM2\Code\Views\bin\Debug\Views.dll
+C:\Users\ReneNN\Documents\Visual Studio 2015\Projects\SkemaMVVM2\Code\Views\bin\Debug\Views.pdb
+C:\Users\ReneNN\Documents\Visual Studio 2015\Projects\SkemaMVVM2\Code\Views\bin\Debug\Models.dll
+C:\Users\ReneNN\Documents\Visual Studio 2015\Projects\SkemaMVVM2\Code\Views\bin\Debug\Models.pdb
+C:\Users\ReneNN\Documents\Visual Studio 2015\Projects\SkemaMVVM2\Code\Views\obj\Debug\Views.csprojResolveAssemblyReference.cache
+C:\Users\ReneNN\Documents\Visual Studio 2015\Projects\SkemaMVVM2\Code\Views\obj\Debug\EditTeacher.g.cs
+C:\Users\ReneNN\Documents\Visual Studio 2015\Projects\SkemaMVVM2\Code\Views\obj\Debug\MainWindow.g.cs
+C:\Users\ReneNN\Documents\Visual Studio 2015\Projects\SkemaMVVM2\Code\Views\obj\Debug\Views_MarkupCompile.cache
+C:\Users\ReneNN\Documents\Visual Studio 2015\Projects\SkemaMVVM2\Code\Views\obj\Debug\Views_MarkupCompile.lref
+C:\Users\ReneNN\Documents\Visual Studio 2015\Projects\SkemaMVVM2\Code\Views\obj\Debug\EditTeacher.baml
+C:\Users\ReneNN\Documents\Visual Studio 2015\Projects\SkemaMVVM2\Code\Views\obj\Debug\MainWindow.baml
+C:\Users\ReneNN\Documents\Visual Studio 2015\Projects\SkemaMVVM2\Code\Views\obj\Debug\Views.g.resources
+C:\Users\ReneNN\Documents\Visual Studio 2015\Projects\SkemaMVVM2\Code\Views\obj\Debug\Views.Properties.Resources.resources
+C:\Users\ReneNN\Documents\Visual Studio 2015\Projects\SkemaMVVM2\Code\Views\obj\Debug\Views.csproj.GenerateResource.Cache
+C:\Users\ReneNN\Documents\Visual Studio 2015\Projects\SkemaMVVM2\Code\Views\obj\Debug\Views.dll
+C:\Users\ReneNN\Documents\Visual Studio 2015\Projects\SkemaMVVM2\Code\Views\obj\Debug\Views.pdb
