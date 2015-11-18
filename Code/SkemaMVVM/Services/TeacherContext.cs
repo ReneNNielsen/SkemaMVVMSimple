@@ -33,6 +33,21 @@ namespace Services
             return false;
         }
 
+        public bool EditTeacher(Teacher newTeacherData)
+        {
+            Teacher oldTeacherData = context.Teachers.Find(newTeacherData.Id);
+            if(oldTeacherData != null)
+            {
+                context.Entry(oldTeacherData).CurrentValues.SetValues(newTeacherData);                
+                if(context.SaveChanges() > 0)
+                {
+                    return true;
+                }
+                return false;
+            }
+            return false;
+        }
+
         public Teacher GetTeacher(int id)
         {
             return context.Teachers.Find(id);
@@ -51,7 +66,12 @@ namespace Services
 
         public List<Teacher> GetAllTeachers()
         {
-            return context.Teachers.ToList();
+            List<Teacher> allTeachers = context.Teachers.ToList();
+            if (allTeachers != null)
+            {
+                return allTeachers;
+            } 
+            return null;                
         }
     }
 }
