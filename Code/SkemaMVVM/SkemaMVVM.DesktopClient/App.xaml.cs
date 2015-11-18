@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using ViewModels;
 
 namespace SkemaMVVM.DesktopClient
 {
@@ -11,9 +12,10 @@ namespace SkemaMVVM.DesktopClient
         {
             base.OnStartup(e);
 
-            var window = new MainWindow
+            TeacherSelectViewModel TeacherViewModel = new TeacherSelectViewModel();
+            var window = new Views.MainWindow
             {
-
+                DataContext = TeacherViewModel
             };
 
             window.ShowDialog();
