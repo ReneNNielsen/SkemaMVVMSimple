@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Views"
         mc:Ignorable="d"
-        Title="EditTeacher" Height="240" Width="255"
+        Title="EditTeacher" Height="320" Width="255"
         Name="ThisWindow">
     <Grid>
         <Grid.ColumnDefinitions>
@@ -14,14 +14,16 @@
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="25px" />
-            <RowDefinition Height="25px" />
-            <RowDefinition Height="25px" />
-            <RowDefinition Height="25px" />
-            <RowDefinition Height="25px" />
-            <RowDefinition Height="25px" />
-            <RowDefinition Height="25px" />
-            <RowDefinition Height="25px" />
+            <RowDefinition Height="28px" />
+            <RowDefinition Height="28px" />
+            <RowDefinition Height="28px" />
+            <RowDefinition Height="28px" />
+            <RowDefinition Height="28px" />
+            <RowDefinition Height="28px" />
+            <RowDefinition Height="28px" />
+            <RowDefinition Height="28px" />
+            <RowDefinition Height="28px" />
+            <RowDefinition Height="28px" />
         </Grid.RowDefinitions>
 
         <Label Grid.Row="0" Grid.Column="0" Content="CPR:"/>
@@ -42,12 +44,36 @@
         <Label Grid.Row="5" Grid.Column="0" Content="By:"/>
         <TextBox Grid.Row="5" Grid.Column="1" Text="{Binding PersonData.City}" />
 
-        <StackPanel Orientation="Horizontal" Grid.Row="6" Grid.Column="1">
-            <Button Content="Gem" Command="{Binding SaveTeacherCommand}" CommandParameter="{Binding ElementName=ThisWindow}" />
+        <Label Grid.Row="6" Grid.Column="0" Content="Fag:"/>
+        <ComboBox Grid.Row="6" Grid.Column="1" ItemsSource="{Binding PersonData.Subjects}">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <CheckBox IsChecked="{Binding IsSelected}" Width="20" />
+                        <TextBlock Text="{Binding Subject}" Width="100" />
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        
+        <Label Grid.Row="7" Grid.Column="0" Content="Klasser:"/>
+        <ComboBox Grid.Row="7" Grid.Column="1" ItemsSource="{Binding PersonData.Classes}">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <CheckBox IsChecked="{Binding IsSelected}" Width="20" />
+                        <TextBlock Text="{Binding Class}" Width="100" />
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="8" Grid.Column="1">
+            <Button Margin="0,0,10,0" Content="Gem" Command="{Binding SaveTeacherCommand}" CommandParameter="{Binding ElementName=ThisWindow}" />
             <Button Content="Annulér" Command="{Binding CanselCommand}" CommandParameter="{Binding ElementName=ThisWindow}" />
         </StackPanel>
 
-        <Label Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" Content="{Binding ErrorMsg}" Foreground="Red" />
+        <Label Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="2" Content="{Binding ErrorMsg}" Foreground="Red" />
         
     </Grid>
 </Window>
