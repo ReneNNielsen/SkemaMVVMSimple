@@ -8,7 +8,13 @@ namespace Models
 {
     public class Teacher : Person
     {
-        public List<int> ClassIds { get; set; }
-        public List<int> SubjectIds { get; set; }
+        public Teacher()
+        {
+            this.Classes = new HashSet<Class>();
+            this.Subjects = new HashSet<Subject>();
+        }
+
+        public virtual ICollection<Class> Classes { get; set; }
+        public virtual ICollection<Subject> Subjects { get; set; }
     }
 }

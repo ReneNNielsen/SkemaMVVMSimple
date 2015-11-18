@@ -3,17 +3,44 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Services;
 using Models;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace DbTests
 {
     [TestClass]
     public class DbTests
     {
-
+        
         [TestMethod]
-        public void AddNewTeacherToDb()
+        public void AddNewTeacherClassesAndSubjectsToDb()
         {
             bool success = false;
+
+            Subject subject1 = new Subject() { Name = "Test subject" };
+            Subject subject2 = new Subject() { Name = "Test subject2" };
+            using (var sc = new SubjectContext())
+            {
+                sc.AddNewSubject(subject1);
+                sc.AddNewSubject(subject2);
+            }
+
+            Class class1 = new Class() { Name = "Test class" };
+            Class class2 = new Class() { Name = "Test class2" };
+            using (var cc = new ClassContext())
+            {
+                cc.AddNewClass(class1);
+                cc.AddNewClass(class2);
+            }
+
+            ICollection<Subject> subjects = new ObservableCollection<Subject>();
+            ICollection<Class> classes = new ObservableCollection<Class>();
+
+            subjects.Add(subject1);
+            subjects.Add(subject2);
+
+            classes.Add(class1);
+            classes.Add(class2);
+
             Teacher newTeacher = new Teacher()
             {
                 FirstName = "Fornavn",
@@ -21,7 +48,9 @@ namespace DbTests
                 SocialSecurityNumber = 010170,
                 Address = "Hallovej 123",
                 ZipCode = 1234,
-                City = "Randers ikke"
+                City = "Randers ikke",
+                Subjects = subjects,
+                Classes = classes
             };
             using (var tc = new TeacherContext())
             {

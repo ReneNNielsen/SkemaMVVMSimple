@@ -11,6 +11,6 @@ namespace Models
         public int Id { get; set; }
         public int WeekNumber { get; set; }
         public int Year { get; set; }
-        public Dictionary<string, List<int>> Subjects { get; set; }        
+        //public Dictionary<string, List<Subject>> SubjectIds { get; set; }        
     }
 }
