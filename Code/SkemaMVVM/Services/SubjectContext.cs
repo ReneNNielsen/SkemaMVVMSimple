@@ -10,22 +10,19 @@ namespace Services
 {
     public class SubjectContext : DataContext
     {
-        DataContext context;
-
         public SubjectContext()
         {
-            context = new DataContext();
         }
 
         public DataContext DataContext
         {
-            get { return context; }
+            get { return Context; }
         }
 
         public bool AddNewSubject(Subject newSubject)
         {
-            Subject insertedSubject = context.Subjects.Add(newSubject);
-            context.SaveChanges();
+            Subject insertedSubject = Context.Subjects.Add(newSubject);
+            Context.SaveChanges();
             if (insertedSubject.Id > 0)
             {
                 return true;
@@ -35,12 +32,12 @@ namespace Services
 
         public Subject GetSubject(int id)
         {
-            return context.Subjects.Find(id);
+            return Context.Subjects.Find(id);
         }
 
         public Subject GetSubject(string name)
         {
-            List<Subject> allSubjects = context.Subjects.ToList();
+            List<Subject> allSubjects = Context.Subjects.ToList();
             foreach(Subject theSubject in allSubjects)
             {
                 if (theSubject.Name == name)
@@ -51,7 +48,7 @@ namespace Services
 
         public List<Subject> GetAllSubjects()
         {
-            List<Subject> allSubjects = context.Subjects.ToList();
+            List<Subject> allSubjects = Context.Subjects.ToList<Subject>();
             if (allSubjects != null)
             {
                 return allSubjects;

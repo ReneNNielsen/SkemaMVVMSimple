@@ -14,3 +14,9 @@ C:\Users\ReneNN\Documents\Visual Studio 2015\Projects\SkemaMVVM2\Code\Views\obj\
 C:\Users\ReneNN\Documents\Visual Studio 2015\Projects\SkemaMVVM2\Code\Views\obj\Debug\Views.csproj.GenerateResource.Cache
 C:\Users\ReneNN\Documents\Visual Studio 2015\Projects\SkemaMVVM2\Code\Views\obj\Debug\Views.dll
 C:\Users\ReneNN\Documents\Visual Studio 2015\Projects\SkemaMVVM2\Code\Views\obj\Debug\Views.pdb
+C:\Users\ReneNN\Documents\Visual Studio 2015\Projects\SkemaMVVM2\Code\Views\bin\Debug\EntityFramework.dll
+C:\Users\ReneNN\Documents\Visual Studio 2015\Projects\SkemaMVVM2\Code\Views\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\ReneNN\Documents\Visual Studio 2015\Projects\SkemaMVVM2\Code\Views\bin\Debug\Services.dll
+C:\Users\ReneNN\Documents\Visual Studio 2015\Projects\SkemaMVVM2\Code\Views\bin\Debug\Services.pdb
+C:\Users\ReneNN\Documents\Visual Studio 2015\Projects\SkemaMVVM2\Code\Views\bin\Debug\EntityFramework.xml
+C:\Users\ReneNN\Documents\Visual Studio 2015\Projects\SkemaMVVM2\Code\Views\bin\Debug\EntityFramework.SqlServer.xml

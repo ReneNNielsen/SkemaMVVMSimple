@@ -5,12 +5,8 @@ C:\Users\ReneNN\Documents\Visual Studio 2015\Projects\SkemaMVVM2\Build\SkemaMVVM
 C:\Users\ReneNN\Documents\Visual Studio 2015\Projects\SkemaMVVM2\Build\SkemaMVVM.DesktopClient.exe
 C:\Users\ReneNN\Documents\Visual Studio 2015\Projects\SkemaMVVM2\Build\SkemaMVVM.DesktopClient.pdb
 C:\Users\ReneNN\Documents\Visual Studio 2015\Projects\SkemaMVVM2\Code\SkemaMVVM\SkemaMVVM.DesktopClient\obj\Debug\SkemaMVVM.DesktopClient.csprojResolveAssemblyReference.cache
-C:\Users\ReneNN\Documents\Visual Studio 2015\Projects\SkemaMVVM2\Code\SkemaMVVM\SkemaMVVM.DesktopClient\obj\Debug\MainWindow.g.cs
 C:\Users\ReneNN\Documents\Visual Studio 2015\Projects\SkemaMVVM2\Code\SkemaMVVM\SkemaMVVM.DesktopClient\obj\Debug\App.g.cs
 C:\Users\ReneNN\Documents\Visual Studio 2015\Projects\SkemaMVVM2\Code\SkemaMVVM\SkemaMVVM.DesktopClient\obj\Debug\SkemaMVVM.DesktopClient_MarkupCompile.cache
-C:\Users\ReneNN\Documents\Visual Studio 2015\Projects\SkemaMVVM2\Code\SkemaMVVM\SkemaMVVM.DesktopClient\obj\Debug\SkemaMVVM.DesktopClient_MarkupCompile.lref
-C:\Users\ReneNN\Documents\Visual Studio 2015\Projects\SkemaMVVM2\Code\SkemaMVVM\SkemaMVVM.DesktopClient\obj\Debug\MainWindow.baml
-C:\Users\ReneNN\Documents\Visual Studio 2015\Projects\SkemaMVVM2\Code\SkemaMVVM\SkemaMVVM.DesktopClient\obj\Debug\SkemaMVVM.DesktopClient.g.resources
 C:\Users\ReneNN\Documents\Visual Studio 2015\Projects\SkemaMVVM2\Code\SkemaMVVM\SkemaMVVM.DesktopClient\obj\Debug\SkemaMVVM.DesktopClient.Properties.Resources.resources
 C:\Users\ReneNN\Documents\Visual Studio 2015\Projects\SkemaMVVM2\Code\SkemaMVVM\SkemaMVVM.DesktopClient\obj\Debug\SkemaMVVM.DesktopClient.csproj.GenerateResource.Cache
 C:\Users\ReneNN\Documents\Visual Studio 2015\Projects\SkemaMVVM2\Code\SkemaMVVM\SkemaMVVM.DesktopClient\obj\Debug\SkemaMVVM.DesktopClient.exe

@@ -10,7 +10,8 @@ namespace Services
 {
     public class DataContext : DbContext, IDisposable
     {
-        public DataContext() : base("SchoolTestDb")
+        private static DataContext context;
+        public DataContext() : base("SchoolDb")
         {
 
         }
@@ -21,5 +22,16 @@ namespace Services
         public DbSet<Subject> Subjects { get; set; }
         public DbSet<Teacher> Teachers { get; set; }
 
+        public DataContext Context
+        {
+            get
+            {
+                if (context == null)
+                {
+                    context = new DataContext();
+                }
+                return context;
+            }
+        }
     }
 }

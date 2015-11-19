@@ -28,6 +28,11 @@ namespace ViewModels
             List<Teacher> allTeachers = tc.GetAllTeachers();
             foreach (Teacher teacher in allTeachers)
             {
+                ObservableCollection<Subject> teachersSubjects = new ObservableCollection<Subject>();
+                foreach (var item in teacher.Subjects)
+                {
+                    teachersSubjects.Add(item);
+                }
                 Person.Persons.Add(new TeacherListItemViewData()
                 {
                     Id = teacher.Id,
@@ -37,7 +42,7 @@ namespace ViewModels
                     City = teacher.City,
                     SocialSecurityNumber = teacher.SocialSecurityNumber,
                     ZipCode = teacher.ZipCode,
-                    Subjects = (ObservableCollection<Subject>)teacher.Subjects
+                    Subjects = teachersSubjects
                 });
             }
         }

@@ -32,6 +32,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\..\Dependencies\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\..\Dependencies\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -91,6 +97,10 @@
     <ProjectReference Include="..\SkemaMVVM\Models\Models.csproj">
       <Project>{b22558ca-8e15-4f8a-9f82-378852b0cfde}</Project>
       <Name>Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SkemaMVVM\Services\Services.csproj">
+      <Project>{5aaec9a4-2a73-44f5-ab48-3d16a2dbf37f}</Project>
+      <Name>Services</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

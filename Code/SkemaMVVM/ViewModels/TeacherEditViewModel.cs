@@ -69,15 +69,7 @@ namespace ViewModels
             TeacherContext tc = new TeacherContext();
             bool isSaved = false;
             EditTeacher et = (EditTeacher)sender;
-            ICollection<Subject> teacherSubjects = new HashSet<Subject>();
-
-            foreach (ComboboxItemViewModel item in subjectComboboxItem)
-            {
-                if (item.IsSelected)
-                {
-                    teacherSubjects.Add(subjectList.Where(f => f.Name == item.Name).FirstOrDefault());
-                }
-            }
+            ICollection<Subject> teacherSubjects = new ObservableCollection<Subject>();
 
             Teacher teacherModel = new Teacher
             {
@@ -87,9 +79,17 @@ namespace ViewModels
                 LastName = teacherData.LastName,
                 Address = teacherData.Address,
                 City = teacherData.City,
-                ZipCode = teacherData.ZipCode,
-                Subjects = teacherSubjects
+                ZipCode = teacherData.ZipCode
             };
+            foreach (ComboboxItemViewModel item in subjectComboboxItem)
+            {
+                if (item.IsSelected)
+                {
+                    teacherModel.Subjects.Add((Subject)subjectList.Where(f => f.Name == item.Name).FirstOrDefault());
+                }
+            }
+
+            
             if (isEdit)
             {
                 isSaved = tc.EditTeacher(teacherModel);
@@ -110,7 +110,7 @@ namespace ViewModels
         {
             get
             {
-                return new ActionCommand(p => Cansel(p), p => CanSave);
+                return new ActionCommand(p => Cansel(p));
             }
         }
 

@@ -27,25 +27,25 @@
         </Grid.RowDefinitions>
 
         <Label Grid.Row="0" Grid.Column="0" Content="CPR:"/>
-        <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding PersonData.SocialSecurityNumber}" />
+        <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding PersonData.SocialSecurityNumber, UpdateSourceTrigger=PropertyChanged}" />
 
         <Label Grid.Row="1" Grid.Column="0" Content="Fornavn:"/>
-        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding PersonData.FirstName}" />
+        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding PersonData.FirstName, UpdateSourceTrigger=PropertyChanged}" />
 
         <Label Grid.Row="2" Grid.Column="0" Content="Efternavn:"/>
-        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding PersonData.LastName}" />
+        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding PersonData.LastName, UpdateSourceTrigger=PropertyChanged}" />
 
         <Label Grid.Row="3" Grid.Column="0" Content="Adresse:"/>
-        <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding PersonData.Address}" />
+        <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding PersonData.Address, UpdateSourceTrigger=PropertyChanged}" />
 
         <Label Grid.Row="4" Grid.Column="0" Content="Post nr.:"/>
-        <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding PersonData.ZipCode}" />
+        <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding PersonData.ZipCode, UpdateSourceTrigger=PropertyChanged}" />
 
         <Label Grid.Row="5" Grid.Column="0" Content="By:"/>
-        <TextBox Grid.Row="5" Grid.Column="1" Text="{Binding PersonData.City}" />
+        <TextBox Grid.Row="5" Grid.Column="1" Text="{Binding PersonData.City, UpdateSourceTrigger=PropertyChanged}" />
 
         <Label Grid.Row="6" Grid.Column="0" Content="Fag:"/>
-        <ComboBox Grid.Row="6" Grid.Column="1" ItemsSource="{Binding Subjects}">
+        <ComboBox Grid.Row="6" Grid.Column="1" ItemsSource="{Binding SubjectComboboxItem}">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">

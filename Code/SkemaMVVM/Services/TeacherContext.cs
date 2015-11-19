@@ -1,6 +1,7 @@
 ﻿using Models;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Data.Entity;
 using System.Linq;
 using System.Text;
@@ -10,22 +11,20 @@ namespace Services
 {
     public class TeacherContext : DataContext
     {
-        DataContext context;
-
         public TeacherContext()
         {
-            context = new DataContext();
         }
 
         public DataContext DataContext
         {
-            get { return context; }
+            get { return Context; }
         }
 
         public bool AddNewTeacher(Teacher newTeacher)
         {
-            Teacher insertedTeacher = context.Teachers.Add(newTeacher);
-            context.SaveChanges();
+            Teacher insertedTeacher = Context.Teachers.Add(newTeacher);
+            Context.SaveChanges();
+            
             if (insertedTeacher.Id > 0)
             {
                 return true;
@@ -35,11 +34,11 @@ namespace Services
 
         public bool EditTeacher(Teacher newTeacherData)
         {
-            Teacher oldTeacherData = context.Teachers.Find(newTeacherData.Id);
+            Teacher oldTeacherData = Context.Teachers.Find(newTeacherData.Id);
             if(oldTeacherData != null)
             {
-                context.Entry(oldTeacherData).CurrentValues.SetValues(newTeacherData);                
-                if(context.SaveChanges() > 0)
+                Context.Entry(oldTeacherData).CurrentValues.SetValues(newTeacherData);                
+                if(Context.SaveChanges() > 0)
                 {
                     return true;
                 }
@@ -50,12 +49,12 @@ namespace Services
 
         public Teacher GetTeacher(int id)
         {
-            return context.Teachers.Find(id);
+            return Context.Teachers.Find(id);
         }
 
         public Teacher GetTeacher(string name)
         {
-            List<Teacher> allTeachers = context.Teachers.ToList();
+            List<Teacher> allTeachers = Context.Teachers.ToList();
             foreach(Teacher teacher in allTeachers)
             {
                 if (teacher.FirstName == name)
@@ -66,7 +65,7 @@ namespace Services
 
         public List<Teacher> GetAllTeachers()
         {
-            List<Teacher> allTeachers = context.Teachers.ToList();
+            List<Teacher> allTeachers = Context.Teachers.ToList();
             if (allTeachers != null)
             {
                 return allTeachers;
