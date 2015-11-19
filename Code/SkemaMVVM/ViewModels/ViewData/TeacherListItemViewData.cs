@@ -23,5 +23,19 @@ namespace ViewModels
                 OnPropertyChanged();
             }
         }
+
+        private ObservableCollection<Class> classes = new ObservableCollection<Class>();
+        public ObservableCollection<Class> Classes
+        {
+            get
+            {
+                return classes;
+            }
+            set
+            {
+                classes = value;
+                OnPropertyChanged();
+            }
+        }
     }
 }

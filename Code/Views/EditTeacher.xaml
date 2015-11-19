@@ -57,7 +57,7 @@
         </ComboBox>
         
         <Label Grid.Row="7" Grid.Column="0" Content="Klasser:"/>
-        <ComboBox Grid.Row="7" Grid.Column="1" ItemsSource="{Binding PersonData.Classes}">
+        <ComboBox Grid.Row="7" Grid.Column="1" ItemsSource="{Binding ClassComboboxItem}">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">

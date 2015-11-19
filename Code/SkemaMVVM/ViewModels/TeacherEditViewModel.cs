@@ -13,6 +13,7 @@ namespace ViewModels
     public class TeacherEditViewModel : PersonEditViewModel
     {
         private ICollection<Subject> subjectList;
+        private ICollection<Class> classList;
 
         private ObservableCollection<ComboboxItemViewModel> subjectComboboxItem = new ObservableCollection<ComboboxItemViewModel>();
         public ObservableCollection<ComboboxItemViewModel> SubjectComboboxItem
@@ -28,14 +29,32 @@ namespace ViewModels
             }
         }
 
+        private ObservableCollection<ComboboxItemViewModel> classComboboxItem = new ObservableCollection<ComboboxItemViewModel>();
+        private object sc;
+
+        public ObservableCollection<ComboboxItemViewModel> ClassComboboxItem
+        {
+            get
+            {
+                return classComboboxItem;
+            }
+            set
+            {
+                classComboboxItem = value;
+                OnPropertyChanged();
+            }
+        }
+
         public TeacherEditViewModel() : base(new TeacherListItemViewData())
         {
             addSubjectsToList();
+            addClassesToList();
         }
 
         public TeacherEditViewModel(TeacherListItemViewData teacherData) : base(teacherData)
         {
             addSubjectsToList();
+            addClassesToList();
         }
 
         private void addSubjectsToList()
@@ -47,12 +66,29 @@ namespace ViewModels
             {
                 SubjectComboboxItem.Add(new ComboboxItemViewModel
                 {
-                    IsSelected = (PersonData as TeacherListItemViewData).Subjects.Any(f => f.Name == item.Name),
-                    Name = item.Name
+                    IsSelected = (PersonData as TeacherListItemViewData).Subjects.Any(f => f.Id == item.Id),
+                    Name = item.Name,
+                    Id = item.Id
                 });
             }
         }
-        
+
+        private void addClassesToList()
+        {
+            ClassContext cc = new ClassContext();
+            classList = cc.GetAllClasses();
+
+            foreach (Class item in classList)
+            {
+                ClassComboboxItem.Add(new ComboboxItemViewModel
+                {
+                    IsSelected = (PersonData as TeacherListItemViewData).Classes.Any(f => f.Id == item.Id),
+                    Name = item.Name,
+                    Id = item.Id
+                });
+            }
+        }
+
         #region Commands
 
         public ActionCommand SaveTeacherCommand
@@ -85,11 +121,18 @@ namespace ViewModels
             {
                 if (item.IsSelected)
                 {
-                    teacherModel.Subjects.Add((Subject)subjectList.Where(f => f.Name == item.Name).FirstOrDefault());
+                    teacherModel.Subjects.Add(subjectList.Where(f => f.Id == item.Id).FirstOrDefault());
+                }
+            }
+            foreach (ComboboxItemViewModel item in ClassComboboxItem)
+            {
+                if (item.IsSelected)
+                {
+                    teacherModel.Classes.Add(classList.Where(f => f.Id == item.Id).FirstOrDefault());
                 }
             }
 
-            
+
             if (isEdit)
             {
                 isSaved = tc.EditTeacher(teacherModel);

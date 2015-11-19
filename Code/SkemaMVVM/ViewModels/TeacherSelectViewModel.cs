@@ -33,6 +33,11 @@ namespace ViewModels
                 {
                     teachersSubjects.Add(item);
                 }
+                ObservableCollection<Class> teachersClasses = new ObservableCollection<Class>();
+                foreach (var item in teacher.Classes)
+                {
+                    teachersClasses.Add(item);
+                }
                 Person.Persons.Add(new TeacherListItemViewData()
                 {
                     Id = teacher.Id,
@@ -42,7 +47,8 @@ namespace ViewModels
                     City = teacher.City,
                     SocialSecurityNumber = teacher.SocialSecurityNumber,
                     ZipCode = teacher.ZipCode,
-                    Subjects = teachersSubjects
+                    Subjects = teachersSubjects,
+                    Classes = teachersClasses
                 });
             }
         }

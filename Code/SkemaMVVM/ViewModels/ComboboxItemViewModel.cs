@@ -35,5 +35,7 @@ namespace ViewModels
                 OnPropertyChanged();
             }
         }
+
+        public int Id { get; set; }
     }
 }
