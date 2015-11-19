@@ -10,7 +10,7 @@ namespace DbTests
     [TestClass]
     public class DbTests
     {
-        
+
         [TestMethod]
         public void AddNewTeacherClassesAndSubjectsToDb()
         {
@@ -71,6 +71,20 @@ namespace DbTests
             Assert.IsNotNull(searchedTeacher.Id);
         }
 
+        [TestMethod]
+        public void getTeacherFromDbAndEditIt()
+        {
+            int id = 1;
+            bool didWeEdit = false;
+            Teacher searchedTeacher;
+            using (var tc = new TeacherContext())
+            {
+                searchedTeacher = tc.GetTeacher(id);
+                searchedTeacher.FirstName = "New Name";
+                didWeEdit = tc.EditTeacher(searchedTeacher);
+            }
+            Assert.IsTrue(didWeEdit);
+        }
 
         [TestMethod]
         public void getTeacherFromDbByName()
@@ -95,6 +109,51 @@ namespace DbTests
             Assert.IsNotNull(allTeachers);
         }
 
+        [ClassInitialize]
+        public static void Startup(TestContext testcontext)
+        {
+            Subject subject1 = new Subject() { Name = "Init subject" };
+            Subject subject2 = new Subject() { Name = "Init subject2" };
+            using (var sc = new SubjectContext())
+            {
+                sc.AddNewSubject(subject1);
+                sc.AddNewSubject(subject2);
+            }
+
+            Class class1 = new Class() { Name = "Init class" };
+            Class class2 = new Class() { Name = "Init class2" };
+            using (var cc = new ClassContext())
+            {
+                cc.AddNewClass(class1);
+                cc.AddNewClass(class2);
+            }
+
+            ICollection<Subject> subjects = new ObservableCollection<Subject>();
+            ICollection<Class> classes = new ObservableCollection<Class>();
+
+            subjects.Add(subject1);
+            subjects.Add(subject2);
+
+            classes.Add(class1);
+            classes.Add(class2);
+
+            Teacher newTeacher = new Teacher()
+            {
+                FirstName = "Ja",
+                LastName = "Hallo",
+                SocialSecurityNumber = 010203,
+                Address = "Hallovej 123",
+                ZipCode = 5678,
+                City = "Viborg",
+                Subjects = subjects,
+                Classes = classes
+            };
+            using (var tc = new TeacherContext())
+            {
+                tc.AddNewTeacher(newTeacher);
+            }
+        }
+
         [ClassCleanup]
         public static void Cleanup()
         {
@@ -102,7 +161,7 @@ namespace DbTests
             {
                 if(tc.Database.Exists())
                 {
-                    //tc.Database.Delete();
+                    tc.Database.Delete();
                 }
             }
         }

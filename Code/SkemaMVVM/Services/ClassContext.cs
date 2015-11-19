@@ -10,22 +10,19 @@ namespace Services
 {
     public class ClassContext : DataContext
     {
-        DataContext context;
-
         public ClassContext()
         {
-            context = new DataContext();
         }
 
         public DataContext DataContext
         {
-            get { return context; }
+            get { return Context; }
         }
 
         public bool AddNewClass(Class newClass)
         {
-            Class insertedClass = context.Classes.Add(newClass);
-            context.SaveChanges();
+            Class insertedClass = Context.Classes.Add(newClass);
+            Context.SaveChanges();
             if (insertedClass.Id > 0)
             {
                 return true;
@@ -35,12 +32,12 @@ namespace Services
 
         public Class GetClass(int id)
         {
-            return context.Classes.Find(id);
+            return Context.Classes.Find(id);
         }
 
         public Class GetClass(string name)
         {
-            List<Class> allClasses = context.Classes.ToList();
+            List<Class> allClasses = Context.Classes.ToList();
             foreach(Class theClass in allClasses)
             {
                 if (theClass.Name == name)
@@ -51,7 +48,7 @@ namespace Services
 
         public List<Class> GetAllClasses()
         {
-            List<Class> allClasses = context.Classes.ToList();
+            List<Class> allClasses = Context.Classes.ToList();
             if (allClasses != null)
             {
                 return allClasses;
