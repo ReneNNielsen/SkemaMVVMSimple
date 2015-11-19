@@ -10,11 +10,14 @@ namespace ViewModels
 {
     public class PersonSelectViewModel : BaseViewModel
     {
-        private PersonSelectViewData person;
+        /// <summary>
+        /// The Constructer for PersonSelectViewModel
+        /// </summary>
         public PersonSelectViewModel()
         {
         }
 
+        private PersonSelectViewData person;
         public PersonSelectViewData Person
         {
             get

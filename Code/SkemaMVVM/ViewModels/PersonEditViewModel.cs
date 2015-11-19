@@ -51,8 +51,15 @@ namespace ViewModels
         }
 
         protected bool isEdit
-        { get; set; }
+        {
+            get;
+            set;
+        }
 
+        /// <summary>
+        /// The Constructer for PersonEditViewModel
+        /// </summary>
+        /// <param name="personData">The data for the person to be edited as PersonListItemViewData</param>
         public PersonEditViewModel(PersonListItemViewData personData)
         {
             PersonData = personData;

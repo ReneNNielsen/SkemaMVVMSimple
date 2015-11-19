@@ -43,23 +43,34 @@ namespace ViewModels
             }
         }
 
+        /// <summary>
+        /// Constructer for TeacherEditViewModel
+        /// </summary>
         public TeacherEditViewModel() : base(new TeacherListItemViewData())
         {
             addSubjectsToList();
             addClassesToList();
         }
 
+        /// <summary>
+        /// Constructer for TeacherEditViewModel
+        /// </summary>
+        /// <param name="teacherData">The TeacherListItemViewData to Edit</param>
         public TeacherEditViewModel(TeacherListItemViewData teacherData) : base(teacherData)
         {
             addSubjectsToList();
             addClassesToList();
         }
 
+        /// <summary>
+        /// Add Subjects to SubjectComboboxItem and to subjectList
+        /// </summary>
         private void addSubjectsToList()
         {
-            SubjectContext sc = new SubjectContext();
-            subjectList = sc.GetAllSubjects();
-
+            using (SubjectContext sc = new SubjectContext())
+            { 
+                subjectList = sc.GetAllSubjects();
+            }
             foreach (Subject item in subjectList)
             {
                 SubjectComboboxItem.Add(new ComboboxItemViewModel
@@ -71,11 +82,15 @@ namespace ViewModels
             }
         }
 
+        /// <summary>
+        /// Add Classes to ClassComboboxItem and to ClassList
+        /// </summary>
         private void addClassesToList()
         {
-            ClassContext cc = new ClassContext();
-            classList = cc.GetAllClasses();
-
+            using (ClassContext cc = new ClassContext())
+            { 
+                classList = cc.GetAllClasses();
+            }
             foreach (Class item in classList)
             {
                 ClassComboboxItem.Add(new ComboboxItemViewModel
@@ -89,20 +104,26 @@ namespace ViewModels
 
         #region Commands
 
+        /// <summary>
+        /// The Command for save a teacher
+        /// </summary>
         public ActionCommand SaveTeacherCommand
         {
             get
             {
-                return new ActionCommand(p => SaveTeacher(p), p => CanSave);
+                return new ActionCommand(p => SaveTeacher((EditTeacher)p), p => CanSave);
             }
         }
 
-        private void SaveTeacher(object sender)
+        /// <summary>
+        /// The method the command use to save a Teacher
+        /// </summary>
+        /// <param name="sender">The EditTeacher window</param>
+        private void SaveTeacher(EditTeacher sender)
         {
             TeacherListItemViewData teacherData = (TeacherListItemViewData)PersonData;
-            TeacherContext tc = new TeacherContext();
-            bool isSaved = false;
-            EditTeacher et = (EditTeacher)sender;
+                            bool isSaved = false;
+            EditTeacher et = sender;
             ICollection<Subject> teacherSubjects = new ObservableCollection<Subject>();
 
             Teacher teacherModel = new Teacher
@@ -130,34 +151,44 @@ namespace ViewModels
                 }
             }
 
+            using (TeacherContext tc = new TeacherContext())
+            {
 
-            if (isEdit)
-            {
-                isSaved = tc.EditTeacher(teacherModel);
+                if (isEdit)
+                {
+                    isSaved = tc.EditTeacher(teacherModel);
+                }
+                else
+                {
+                    isSaved = tc.AddNewTeacher(teacherModel);
+                }
+                if (isSaved)
+                {
+                    et.DialogResult = true;
+                    et.Close();
+                }
+                ErrorMsg = "Teacher did not work";
             }
-            else
-            {
-                isSaved = tc.AddNewTeacher(teacherModel);
-            }
-            if (isSaved)
-            {
-                et.DialogResult = true;
-                et.Close();
-            }
-            ErrorMsg = "Teacher did not work";
         }
 
+        /// <summary>
+        /// The command to Cancel the changes
+        /// </summary>
         public ActionCommand CanselCommand
         {
             get
             {
-                return new ActionCommand(p => Cansel(p));
+                return new ActionCommand(p => Cansel((EditTeacher)p));
             }
         }
 
-        private void Cansel(object sender)
+        /// <summary>
+        /// The method the CanselCommand use to Cancel
+        /// </summary>
+        /// <param name="sender">The EditTeacher window</param>
+        private void Cansel(EditTeacher sender)
         {
-            EditTeacher et = (EditTeacher)sender;
+            EditTeacher et = sender;
             et.DialogResult = false;
             et.Close();
         }
