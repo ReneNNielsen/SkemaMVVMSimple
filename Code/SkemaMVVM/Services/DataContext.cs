@@ -8,7 +8,7 @@ using Models;
 
 namespace Services
 {
-    public class DataContext : DbContext, IDisposable
+    public class DataContext : DbContext
     {
         private static DataContext context;
         public DataContext() : base("SchoolDb")

@@ -21,7 +21,7 @@
                         <ColumnDefinition Width="60px" />
                     </Grid.ColumnDefinitions>
 
-                    <DataGrid IsReadOnly="True" ItemsSource="{Binding Tsvm.Person.Persons}" SelectedItem="{Binding tsvm.SelectedPerson}" />
+                    <DataGrid IsReadOnly="True" ItemsSource="{Binding Tsvm.Person.Persons}" SelectedItem="{Binding Tsvm.SelectedPerson}" />
 
                     <StackPanel Grid.Column="1">
                         <Button Height="25px" VerticalAlignment="Top" Content="Ny lære" Command="{Binding Tsvm.AddTeacherCommand}"/>
@@ -36,12 +36,11 @@
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="60px" />
                     </Grid.ColumnDefinitions>
-
-                    <ListView Grid.Column="0" ItemsSource="{Binding Ssvm.studentSource}" SelectedItem="{Binding Ssvm.SelectedPerson}" />
-                    <StackPanel Grid.Column="1">
-                        <Button Height="25px" VerticalAlignment="Top" Content="Ny elev" Command="{Binding Ssvm.AddStudentCommand}"/>
-                        <Button Height="25px" VerticalAlignment="Top" Content="Redigér" Command="{Binding Ssvm.EditStudentCommand}"/>
-                    </StackPanel>
+                    
+                    <!--<StackPanel Grid.Column="1">
+                        <Button Height="25px" VerticalAlignment="Top" Content="Ny elev" Command="{Binding Ssvm.AddSubjectCommand}"/>
+                        <Button Height="25px" VerticalAlignment="Top" Content="Redigér" Command="{Binding Ssvm.EditSubjectCommand}"/>
+                    </StackPanel>-->
 
                 </Grid>
             </TabItem>
@@ -55,12 +54,12 @@
                         <ColumnDefinition Width="60px" />
                     </Grid.ColumnDefinitions>
 
-                    <DataGrid IsReadOnly="True" ItemsSource="{Binding Subject.Subjects}" SelectedItem="{Binding SelectedSubject}" />
+                    <DataGrid IsReadOnly="True" ItemsSource="{Binding Ssvm.Ssvd.Subjects}" SelectedItem="{Binding Ssvm.SelectedSubject}" />
 
                     <StackPanel Grid.Column="1">
-                        <Button Height="25px" VerticalAlignment="Top" Content="Nyt fag" Command="{Binding AddSubjectCommand}"/>
-                        <Button Height="25px" VerticalAlignment="Top" Content="Redigér" Command="{Binding EditSubjectCommand}" />
-                        <Button Height="25px" VerticalAlignment="Top" Content="Autotilføj" Command="{Binding AutoAddCommand}" />
+                        <!--<Button Height="25px" VerticalAlignment="Top" Content="Nyt fag" Command="{Binding AddSubjectCommand}"/>
+                        <Button Height="25px" VerticalAlignment="Top" Content="Redigér" Command="{Binding EditSubjectCommand}" />-->
+                        <Button Height="25px" VerticalAlignment="Top" Content="Autotilføj" Command="{Binding Ssvm.AutoAddCommand2}" />
                     </StackPanel>
 
                 </Grid>

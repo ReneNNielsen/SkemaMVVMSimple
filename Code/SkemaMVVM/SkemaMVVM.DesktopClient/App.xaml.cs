@@ -12,10 +12,10 @@ namespace SkemaMVVM.DesktopClient
         {
             base.OnStartup(e);
 
-            TeacherSelectViewModel TeacherViewModel = new TeacherSelectViewModel();
+            MainViewModel ViewModel = new MainViewModel();
             var window = new Views.MainWindow
             {
-                DataContext = TeacherViewModel
+                DataContext = ViewModel
             };
 
             window.ShowDialog();

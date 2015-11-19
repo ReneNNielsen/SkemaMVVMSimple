@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace ViewModels
 {
-    public class SubjectViewData : BaseViewData
+
+    public class SubjectSelectViewData : BaseViewData
     {
         private ObservableCollection<SubjectListItemViewData> subjects;
         public ObservableCollection<SubjectListItemViewData> Subjects
@@ -27,7 +28,10 @@ namespace ViewModels
             }
         }
 
-        public SubjectViewData()
+        /// <summary>
+        /// Constructer for SubjectSelectViewData
+        /// </summary>
+        public SubjectSelectViewData()
         {
             Subjects = new ObservableCollection<SubjectListItemViewData>();
         }

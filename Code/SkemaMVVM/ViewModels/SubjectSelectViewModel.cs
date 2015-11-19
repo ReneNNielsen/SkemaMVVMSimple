@@ -15,13 +15,48 @@ namespace ViewModels
 {
     public class SubjectSelectViewModel : BaseViewModel
     {
-        public bool autoAddDone = false;
+        private bool canAutoAdd = true;
+        private SubjectSelectViewData ssvd;
 
+        /// <summary>
+        /// Constructor for SubjectSelectViewModel.
+        /// </summary>
         public SubjectSelectViewModel()
         {
+            Ssvd = new SubjectSelectViewData();
             addSubjects();
         }
 
+        public SubjectSelectViewData Ssvd
+        {
+            get
+            {
+                return ssvd;
+            }
+            set
+            {
+                ssvd = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private SubjectListItemViewData selectedSubject;
+        public SubjectListItemViewData SelectedSubject
+        {
+            get
+            {
+                return selectedSubject;
+            }
+            set
+            {
+                selectedSubject = value;
+                OnPropertyChanged();
+            }
+        }
+
+        /// <summary>
+        /// Adds subjects from the database to SubjectViewData
+        /// </summary>
         private void addSubjects()
         {
             using (SubjectContext sc = new SubjectContext())
@@ -29,45 +64,41 @@ namespace ViewModels
                 List<Subject> allSubjects = sc.GetAllSubjects();
                 foreach (Subject subject in allSubjects)
                 {
-                    if (Subject.Persons.Any(p => p.Id == teacher.Id))
+                    if (Ssvd.Subjects.Any(p => p.Id == subject.Id))
                     {
-                        continue;
+                        if (SelectedSubject != null && SelectedSubject.Id == subject.Id)
+                        {
+                            Ssvd.Subjects.Remove(SelectedSubject);
+                        }
+                        else
+                        {
+                            continue;
+                        }
                     }
-                    ObservableCollection<Subject> teachersSubjects = new ObservableCollection<Subject>();
-                    foreach (var item in teacher.Subjects)
+                    Ssvd.Subjects.Add(new SubjectListItemViewData()
                     {
-                        teachersSubjects.Add(item);
-                    }
-                    ObservableCollection<Class> teachersClasses = new ObservableCollection<Class>();
-                    foreach (var item in teacher.Classes)
-                    {
-                        teachersClasses.Add(item);
-                    }
-                    Person.Persons.Add(new TeacherListItemViewData()
-                    {
-                        Id = teacher.Id,
-                        FirstName = teacher.FirstName,
-                        LastName = teacher.LastName,
-                        Address = teacher.Address,
-                        City = teacher.City,
-                        SocialSecurityNumber = teacher.SocialSecurityNumber,
-                        ZipCode = teacher.ZipCode,
-                        Subjects = teachersSubjects,
-                        Classes = teachersClasses
+                        Id = subject.Id,
+                        Name = subject.Name,
                     });
                 }
             }
         }
 
+        /// <summary>
+        /// Determines if the edit button is pressable
+        /// </summary>
         public bool CanEdit
         {
             get
             {
-                return autoAddDone;
+                return canAutoAdd;
             }
         }
 
-        public ActionCommand AutoAddCommand
+        /// <summary>
+        /// Command to be run with binding that calls AutoAddSubjects.
+        /// </summary>
+        public ActionCommand AutoAddCommand2
         {
             get
             {
@@ -75,6 +106,9 @@ namespace ViewModels
             }
         }
 
+        /// <summary>
+        /// Adds subjects to the database and refreshes the view.
+        /// </summary>
         private void AutoAddSubjects()
         {
             Subject dansk = new Subject() { Name = "Dansk" };
@@ -89,7 +123,8 @@ namespace ViewModels
                 sc.AddNewSubject(matematik);
                 sc.AddNewSubject(biologi);
             }
-            autoAddDone = true;
+            canAutoAdd = false;
+            addSubjects();
         }
     }
 }

@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace ViewModels
 {
-    class MainViewModel : BaseViewModel
+    public class MainViewModel : BaseViewModel
     {
+        /// <summary>
+        /// Constructor for MainViewModel.
+        /// </summary>
         public MainViewModel()
         {
             tsvm = new TeacherSelectViewModel();
