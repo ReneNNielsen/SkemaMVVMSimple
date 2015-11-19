@@ -21,11 +21,11 @@
                         <ColumnDefinition Width="60px" />
                     </Grid.ColumnDefinitions>
 
-                    <DataGrid IsReadOnly="True" ItemsSource="{Binding Person.Persons}" SelectedItem="{Binding SelectedPerson}" />
+                    <DataGrid IsReadOnly="True" ItemsSource="{Binding Tsvm.Person.Persons}" SelectedItem="{Binding tsvm.SelectedPerson}" />
 
                     <StackPanel Grid.Column="1">
-                        <Button Height="25px" VerticalAlignment="Top" Content="Ny lære" Command="{Binding AddTeacherCommand}"/>
-                        <Button Height="25px" VerticalAlignment="Top" Content="Redigér" Command="{Binding EditTeacherCommand}" />
+                        <Button Height="25px" VerticalAlignment="Top" Content="Ny lære" Command="{Binding Tsvm.AddTeacherCommand}"/>
+                        <Button Height="25px" VerticalAlignment="Top" Content="Redigér" Command="{Binding Tsvm.EditTeacherCommand}" />
                     </StackPanel>
 
                 </Grid>
@@ -37,10 +37,10 @@
                         <ColumnDefinition Width="60px" />
                     </Grid.ColumnDefinitions>
 
-                    <ListView Grid.Column="0" ItemsSource="{Binding studentSource}" SelectedItem="{Binding SelectedPerson}" />
+                    <ListView Grid.Column="0" ItemsSource="{Binding Ssvm.studentSource}" SelectedItem="{Binding Ssvm.SelectedPerson}" />
                     <StackPanel Grid.Column="1">
-                        <Button Height="25px" VerticalAlignment="Top" Content="Ny elev" Command="{Binding AddStudentCommand}"/>
-                        <Button Height="25px" VerticalAlignment="Top" Content="Redigér" Command="{Binding EditStudentCommand}"/>
+                        <Button Height="25px" VerticalAlignment="Top" Content="Ny elev" Command="{Binding Ssvm.AddStudentCommand}"/>
+                        <Button Height="25px" VerticalAlignment="Top" Content="Redigér" Command="{Binding Ssvm.EditStudentCommand}"/>
                     </StackPanel>
 
                 </Grid>
@@ -60,6 +60,7 @@
                     <StackPanel Grid.Column="1">
                         <Button Height="25px" VerticalAlignment="Top" Content="Nyt fag" Command="{Binding AddSubjectCommand}"/>
                         <Button Height="25px" VerticalAlignment="Top" Content="Redigér" Command="{Binding EditSubjectCommand}" />
+                        <Button Height="25px" VerticalAlignment="Top" Content="Autotilføj" Command="{Binding AutoAddCommand}" />
                     </StackPanel>
 
                 </Grid>
