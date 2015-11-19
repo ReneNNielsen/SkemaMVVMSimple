@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Views"
         mc:Ignorable="d"
-        Title="MainWindow" Height="442" Width="522">
+        Title="Skema planlægning" Height="442" Width="522">
     <Window.Resources>
         <Style x:Key="hcs" TargetType="{x:Type GridViewColumnHeader}">
             <Setter Property="HorizontalContentAlignment" Value="Left"></Setter>
@@ -21,7 +21,7 @@
                         <ColumnDefinition Width="60px" />
                     </Grid.ColumnDefinitions>
 
-                    <DataGrid ItemsSource="{Binding Person.Persons}" SelectedItem="{Binding SelectedPerson}" />
+                    <DataGrid IsReadOnly="True" ItemsSource="{Binding Person.Persons}" SelectedItem="{Binding SelectedPerson}" />
 
                     <StackPanel Grid.Column="1">
                         <Button Height="25px" VerticalAlignment="Top" Content="Ny lære" Command="{Binding AddTeacherCommand}"/>

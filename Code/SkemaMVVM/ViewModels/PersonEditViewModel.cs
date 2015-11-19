@@ -36,7 +36,22 @@ namespace ViewModels
             }
         }
 
-        protected bool isEdit { get; set; }
+        private string title;
+        public string Title
+        {
+            get
+            {
+                return title;
+            }
+            private set
+            {
+                title = value;
+                OnPropertyChanged();
+            }
+        }
+
+        protected bool isEdit
+        { get; set; }
 
         public PersonEditViewModel(PersonListItemViewData personData)
         {
@@ -44,6 +59,11 @@ namespace ViewModels
             if (PersonData.SocialSecurityNumber != 0)
             {
                 isEdit = true;
+                Title = "Rediger";
+            }
+            else
+            {
+                Title = "Opret";
             }
         }
 

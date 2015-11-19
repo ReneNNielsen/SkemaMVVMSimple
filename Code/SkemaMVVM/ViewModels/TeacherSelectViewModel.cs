@@ -28,6 +28,10 @@ namespace ViewModels
             List<Teacher> allTeachers = tc.GetAllTeachers();
             foreach (Teacher teacher in allTeachers)
             {
+                if (Person.Persons.Any(p => p.Id == teacher.Id))
+                {
+                    continue;
+                }
                 ObservableCollection<Subject> teachersSubjects = new ObservableCollection<Subject>();
                 foreach (var item in teacher.Subjects)
                 {
@@ -92,7 +96,12 @@ namespace ViewModels
             {
                 DataContext = teacherEditViewModel
             };
-            editTeacher.ShowDialog();
+            bool? didListChange = editTeacher.ShowDialog();
+
+            if (didListChange == true)
+            {
+                addTeachersToPersons();
+            }
         }
     }
 }
