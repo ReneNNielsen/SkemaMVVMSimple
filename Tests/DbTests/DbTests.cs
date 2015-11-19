@@ -14,7 +14,7 @@ namespace DbTests
         [TestMethod]
         public void AddNewTeacherClassesAndSubjectsToDb()
         {
-            bool success = false;
+            bool success = false; 
 
             Subject subject1 = new Subject() { Name = "Test subject" };
             Subject subject2 = new Subject() { Name = "Test subject2" };
