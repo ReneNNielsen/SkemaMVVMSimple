@@ -30,8 +30,6 @@ namespace ViewModels
         }
 
         private ObservableCollection<ComboboxItemViewModel> classComboboxItem = new ObservableCollection<ComboboxItemViewModel>();
-        private object sc;
-
         public ObservableCollection<ComboboxItemViewModel> ClassComboboxItem
         {
             get

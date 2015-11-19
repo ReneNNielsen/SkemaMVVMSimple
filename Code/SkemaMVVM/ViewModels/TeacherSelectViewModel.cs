@@ -30,7 +30,14 @@ namespace ViewModels
             {
                 if (Person.Persons.Any(p => p.Id == teacher.Id))
                 {
-                    continue;
+                    if (SelectedPerson != null && SelectedPerson.Id == teacher.Id)
+                    {
+                        Person.Persons.Remove(SelectedPerson);
+                    }
+                    else
+                    {
+                        continue;
+                    }
                 }
                 ObservableCollection<Subject> teachersSubjects = new ObservableCollection<Subject>();
                 foreach (var item in teacher.Subjects)
@@ -80,7 +87,12 @@ namespace ViewModels
             {
                 DataContext = teacherEditViewModel
             };
-            editTeacher.ShowDialog();
+            bool? didListChange = editTeacher.ShowDialog();
+
+            if (didListChange == true)
+            {
+                addTeachersToPersons();
+            }
         }
         public ActionCommand AddTeacherCommand
         {
